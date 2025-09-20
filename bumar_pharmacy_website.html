@@ -31,7 +31,7 @@
             color: #7d0518 !important;
             text-decoration: none;
             background-color: #ffffff;
-            padding: 4px 4px 4px 4px;
+            padding: 10px 10px 10px 10px;
             border-radius: 4px;;
         }
 
@@ -77,10 +77,12 @@
             z-index:1;
             background-color: rgba(0,0,0,.6);
         }
+
         .carousel-content a, .carousel-content p, .carousel-content h1{
             position: relative;
             z-index:2!important;
         }
+
         /*.carousel-slide:nth-child(1) {
             background-image: linear-gradient(rgba(148, 6, 27, 0.7), rgba(148, 6, 27, 0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400"><rect fill="%23f0f8ff" width="800" height="400"/><rect fill="%2394061b" x="0" y="0" width="800" height="100"/><circle fill="%23ffffff" cx="200" cy="200" r="50"/><circle fill="%23ffffff" cx="400" cy="250" r="30"/><circle fill="%23ffffff" cx="600" cy="180" r="40"/><text x="400" y="320" text-anchor="middle" font-size="24" fill="%2394061b">Modern Pharmacy Interior</text></svg>');
         }
@@ -171,6 +173,10 @@
             width: 100%;
             height: 200px;
             object-fit: cover;
+        }
+
+        .date-posted{
+            color: #7d0518;
         }
 
         .card-title{
@@ -418,6 +424,11 @@
             color: #7d0518;
         }
 
+        .testifier{
+            border-top: solid 1px #6c757d;
+            padding-top: 15px;
+        }
+
         .customer-name{
             color: #7d0518;
         }
@@ -440,6 +451,7 @@
                 font-size: 2rem;
             }
         }
+
         nav{
             padding-top:60px;
         }
@@ -614,7 +626,7 @@
     <section id="blog" class="py-5" style="background-color: #f8f9fa;">
         <div class="container">
             <div class="section-header">
-                <h2>Health Blog</h2>
+                <h2>Let's Keep You Healthy</h2>
                 <hr class="custom-hr">
             </div>
             <div class="row">
@@ -624,7 +636,7 @@
                             <img src="./diabetes.png" alt="" class="card-img blog-image">
                             <h5 class="card-title mt-3">Managing Diabetes: Tips for Better Control</h5>
                             <p class="card-text">Learn essential strategies for managing diabetes effectively, including medication adherence, dietary considerations, and monitoring techniques.</p>
-                            <small class="text-muted">Published: September 15, 2025</small>
+                            <small class="text-muted">Published: <span class="date-posted">September 15, 2025</span></small>
                         </div>
                     </div>
                 </div>
@@ -634,7 +646,7 @@
                             <img src="./ma.jpg" alt="" class="card-img blog-image">
                             <h5 class="card-title mt-3">The Importance of Medication Adherence</h5>
                             <p class="card-text">Discover why taking medications as prescribed is crucial for treatment success and learn practical tips to improve adherence.</p>
-                            <small class="text-muted">Published: September 10, 2025</small>
+                            <small class="text-muted">Published: <span class="date-posted">September 10, 2025</span></small>
                         </div>
                     </div>
                 </div>
@@ -644,7 +656,7 @@
                             <img src="flu-season.jpg" alt="" class="card-img blog-image">
                             <h5 class="card-title mt-3">Flu Season Preparation: What You Need to Know</h5>
                             <p class="card-text">Get ready for flu season with our comprehensive guide to vaccinations, prevention strategies, and early treatment options.</p>
-                            <small class="text-muted">Published: September 5, 2025</small>
+                            <small class="text-muted">Published: <span class="date-posted">September 5, 2025</span></small>
                         </div>
                     </div>
                 </div>
@@ -661,10 +673,10 @@
             </div>
             <div class="row">
                 <div class="col-lg-4 mb-4">
-                    <div class="testimonial-card">
+                    <div class="testimonial-card h-100">
                         <img style="display: block; margin: 0 auto; width:90px; height:95px; border: solid #7d0518; border-radius: 50px;" src="./man1.jpg" alt="">
                         <p class="mt-3 mb-3">"Bunar Pharmacy has been my go-to pharmacy for over 10 years. The staff is knowledgeable, friendly, and always willing to help. Their delivery service is a lifesaver!"</p>
-                        <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center testifier">
                             <div>
                                 <h6 class="mb-0 customer-name">Amir Janaid Kakooza</h6>
                                 <small class="text-muted">Regular Customer</small>
@@ -682,10 +694,10 @@
                     </div>
                 </div>
                 <div class="col-lg-4 mb-4">
-                    <div class="testimonial-card">
+                    <div class="testimonial-card h-100">
                         <img style="display: block; margin: 0 auto; width:90px; height:95px; border: solid #7d0518; border-radius: 50px;" src="./woman.jpg" alt="">
                         <p class="mt-3 mb-3">"The pharmacists at Bunar are incredibly professional and thorough. They always take time to explain my medications and answer any questions I have."</p>
-                        <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center testifier">
                             <div>
                                 <h6 class="mb-0 customer-name">Jazirah Kayihura</h6>
                                 <small class="text-muted">Satisfied Customer</small>
@@ -703,10 +715,10 @@
                     </div>
                 </div>
                 <div class="col-lg-4 mb-4">
-                    <div class="testimonial-card">
+                    <div class="testimonial-card h-100">
                         <img style="display: block; margin: 0 auto; width:90px; height:95px; border: solid #7d0518; border-radius: 50px; object-fit: cover;" src="./sevo.jpg" alt="">
                         <p class="mt-3 mb-3">"Outstanding service and competitive prices. The convenience of their online ordering and home delivery makes managing my family's medications so much easier."</p>
-                        <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center testifier">
                             <div>
                                 <h6 class="mb-0 customer-name">Kizito Jamil</h6>
                                 <small class="text-muted">Loyal Customer</small>
@@ -896,26 +908,22 @@
             </div>
             <div class="row">
                 <div class="col-lg-6 mb-4">
-                    <h5 class="mb-4">Contact Information</h5>
+                    <h5 class="mb-4"><b>Contact Information</b></h5>
                     <div class="mb-3">
                         <i class="fas fa-map-marker-alt me-3" style="color: var(--primary-color);"></i>
-                        <strong>Address:</strong> 123 Healthcare Boulevard, Medical District, City, State 12345
+                        <strong>Address:</strong> Kamuli Road, Kireka
                     </div>
                     <div class="mb-3">
                         <i class="fas fa-phone me-3" style="color: var(--primary-color);"></i>
-                        <strong>Phone:</strong> (555) 123-4567
+                        <strong>Phone:</strong> 0749059309 | 0770990793
                     </div>
                     <div class="mb-3">
                         <i class="fas fa-envelope me-3" style="color: var(--primary-color);"></i>
                         <strong>Email:</strong> info@bumarpharmacy.com
                     </div>
                     <div class="mb-3">
-                        <i class="fas fa-fax me-3" style="color: var(--primary-color);"></i>
-                        <strong>Fax:</strong> (555) 123-4568
-                    </div>
-                    <div class="mb-3">
-                        <i class="fas fa-globe me-3" style="color: var(--primary-color);"></i>
-                        <strong>Website:</strong> www.bumarpharmacy.com
+                        <i class="fab fa-whatsapp me-3" style="color: var(--primary-color);"></i>
+                        <strong>WhatsApp:</strong> 0770990793
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -963,9 +971,9 @@
                 </div>
                 <div class="col-lg-3 footer-section">
                     <h5>Contact Info</h5>
-                    <p><i class="fas fa-phone me-2"></i>(555) 123-4567</p>
+                    <p><i class="fas fa-phone me-2"></i>0749059309 | 0770990793</p>
                     <p><i class="fas fa-envelope me-2"></i>info@bumarpharmacy.com</p>
-                    <p><i class="fas fa-map-marker-alt me-2"></i>123 Healthcare Boulevard<br>Medical District, City, State 12345</p>
+                    <p><i class="fas fa-map-marker-alt me-2"></i>Kamuli Road, Kireka</p>
                 </div>
             </div>
             <hr style="border-color: rgba(255,255,255,0.2); margin: 30px 0 20px 0;">
