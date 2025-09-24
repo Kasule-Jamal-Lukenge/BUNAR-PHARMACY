@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bumar Pharmacy - Your Trusted Healthcare Partner</title>
+    <title>Bumar Pharmacy | Your One Stop Pharmacy</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -65,7 +65,7 @@
         }
         
         .carousel-slide {
-            background-image: url('./ug-pharmacy.jpg');
+            background-image: url('./assets/images/ug-pharmacy.jpg');
         }
         .carousel-slide::after{
             content: '';
@@ -527,14 +527,22 @@
             </div>
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <h3 class="mb-4">Your Trusted Healthcare Partner</h3>
-                    <p>For over two decades, Bunar Pharmacy has been serving the community with dedication, professionalism, and care. We understand that your health is your most precious asset, and we're here to support you every step of the way.</p>
-                    <p>Our experienced team of licensed pharmacists and healthcare professionals are committed to providing personalized service, ensuring you receive the right medications and proper guidance for optimal health outcomes. We combine traditional pharmaceutical expertise with modern technology to deliver exceptional care.</p>
-                    <p>At Bunar Pharmacy, we believe in building lasting relationships with our patients, understanding their unique needs, and providing comprehensive pharmaceutical solutions that make a real difference in their lives.</p>
+                    <h3 class="mb-4">Who We Are</h3>
+                    <p>
+                        Founded with a vision to serve the community in Kirreka and beyond, Bunar Pharmacy is 
+                        driven to become Uganda’s leading pharmacy and health retailer. We stand apart—both in 
+                        structure and in culture—from the typical pharmacy. 
+                    </p>
+                    <p>
+                       Our team of dedicated professionals takes time to understand your health needs and offers 
+                       expert care in a welcoming, family-like environment. Our goal is simple: to be recognized 
+                       as your one-stop pharmacy, known for reliable service, trusted knowledge, and fast delivery 
+                       whenever you need it.  
+                    </p>
                 </div>
                 <div class="col-lg-6">
                     <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); height: 400px; border-radius: 15px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(148, 6, 27, 0.1);">
-                        <img style="width: 100%; height:100%; border-radius: 4px;" src="./ug-pharmacy.jpg" alt="">
+                        <img style="width: 100%; height:100%; border-radius: 4px;" src="./assets/images/ug-pharmacy.jpg" alt="">
                         <!-- <div style="text-align: center; color: #94061b;">
                             <i class="fas fa-hospital-alt" style="font-size: 100px; margin-bottom: 20px;"></i>
                             <h4>Modern Pharmacy Facility</h4>
@@ -603,7 +611,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div style="background: linear-gradient(135deg, #94061b 0%, #7d0518 100%); height: 455px; box-shadow: 0 10px 30px rgba(148, 6, 27, 0.2); overflow: hidden;">
-                        <img style="object-fit:cover; height: 100%; width: 100%;" src="./delivery-guy.jpeg" alt="">
+                        <img style="object-fit:cover; height: 100%; width: 100%;" src="./assets/images/delivery-guy.jpeg" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -633,7 +641,7 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card blog-card h-100">
                         <div class="card-body">
-                            <img src="./diabetes.png" alt="" class="card-img blog-image">
+                            <img src="./assets/images/diabetes.png" alt="" class="card-img blog-image">
                             <h5 class="card-title mt-3">Managing Diabetes: Tips for Better Control</h5>
                             <p class="card-text">Learn essential strategies for managing diabetes effectively, including medication adherence, dietary considerations, and monitoring techniques.</p>
                             <small class="text-muted">Published: <span class="date-posted">September 15, 2025</span></small>
@@ -643,7 +651,7 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card blog-card h-100">
                         <div class="card-body">
-                            <img src="./ma.jpg" alt="" class="card-img blog-image">
+                            <img src="./assets/images/ma.jpg" alt="" class="card-img blog-image">
                             <h5 class="card-title mt-3">The Importance of Medication Adherence</h5>
                             <p class="card-text">Discover why taking medications as prescribed is crucial for treatment success and learn practical tips to improve adherence.</p>
                             <small class="text-muted">Published: <span class="date-posted">September 10, 2025</span></small>
@@ -653,7 +661,7 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card blog-card h-100">
                         <div class="card-body">
-                            <img src="flu-season.jpg" alt="" class="card-img blog-image">
+                            <img src="./assets/images/flu-season.jpg" alt="" class="card-img blog-image">
                             <h5 class="card-title mt-3">Flu Season Preparation: What You Need to Know</h5>
                             <p class="card-text">Get ready for flu season with our comprehensive guide to vaccinations, prevention strategies, and early treatment options.</p>
                             <small class="text-muted">Published: <span class="date-posted">September 5, 2025</span></small>
@@ -674,7 +682,7 @@
             <div class="row">
                 <div class="col-lg-4 mb-4">
                     <div class="testimonial-card h-100">
-                        <img style="display: block; margin: 0 auto; width:90px; height:95px; border: solid #7d0518; border-radius: 50px;" src="./man1.jpg" alt="">
+                        <img style="display: block; margin: 0 auto; width:90px; height:95px; border: solid #7d0518; border-radius: 50px;" src="./assets/images/man1.jpg" alt="">
                         <p class="mt-3 mb-3">"Bunar Pharmacy has been my go-to pharmacy for over 10 years. The staff is knowledgeable, friendly, and always willing to help. Their delivery service is a lifesaver!"</p>
                         <div class="d-flex align-items-center testifier">
                             <div>
@@ -695,7 +703,7 @@
                 </div>
                 <div class="col-lg-4 mb-4">
                     <div class="testimonial-card h-100">
-                        <img style="display: block; margin: 0 auto; width:90px; height:95px; border: solid #7d0518; border-radius: 50px;" src="./woman.jpg" alt="">
+                        <img style="display: block; margin: 0 auto; width:90px; height:95px; border: solid #7d0518; border-radius: 50px;" src="./assets/images/woman.jpg" alt="">
                         <p class="mt-3 mb-3">"The pharmacists at Bunar are incredibly professional and thorough. They always take time to explain my medications and answer any questions I have."</p>
                         <div class="d-flex align-items-center testifier">
                             <div>
@@ -716,7 +724,7 @@
                 </div>
                 <div class="col-lg-4 mb-4">
                     <div class="testimonial-card h-100">
-                        <img style="display: block; margin: 0 auto; width:90px; height:95px; border: solid #7d0518; border-radius: 50px; object-fit: cover;" src="./sevo.jpg" alt="">
+                        <img style="display: block; margin: 0 auto; width:90px; height:95px; border: solid #7d0518; border-radius: 50px; object-fit: cover;" src="./assets/images/sevo.jpg" alt="">
                         <p class="mt-3 mb-3">"Outstanding service and competitive prices. The convenience of their online ordering and home delivery makes managing my family's medications so much easier."</p>
                         <div class="d-flex align-items-center testifier">
                             <div>
