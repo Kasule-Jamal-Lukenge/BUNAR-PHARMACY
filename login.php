@@ -170,7 +170,7 @@
         .input-icon {
             position: absolute;
             right: 15px;
-            top: 50%;
+            top: 70%;
             transform: translateY(-50%);
             color: #6c757d;
             font-size: 1.1rem;
