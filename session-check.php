@@ -11,11 +11,7 @@
         
         // Check remember me token
         if (isset($_COOKIE['remember_token'])) {
-            $host = "localhost";
-            $user = "root";
-            $pass = "";
-            $db = "bunar_pharmacy";
-            $conn = new mysqli($host, $user, $pass, $db);
+            require_once('conn.php');
             
             if (!$conn->connect_error) {
                 $token = $_COOKIE['remember_token'];

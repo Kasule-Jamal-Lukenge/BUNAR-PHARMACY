@@ -410,7 +410,6 @@
 </head>
 <body>
     <div class="login-container">
-        <!-- Left Side - Image/Branding -->
         <div class="login-image">
             <div class="image-content">
                 <div class="pharmacy-logo">
@@ -450,7 +449,7 @@
             <!-- Alert Messages -->
             <div id="alertContainer"></div>
             
-            <form id="loginForm" action="authenticate.php" method="POST">
+            <form id="loginForm" action="login-auth.php" method="POST">
                 <div class="form-group">
                     <label for="username" class="form-label">
                         <i class="fas fa-user me-2"></i>Username or Email
@@ -531,7 +530,7 @@
             loadingSpinner.classList.add('active');
             
             // For demo purposes - remove this in production
-            e.preventDefault();
+            // e.preventDefault();
             
             // Simulate authentication process
             setTimeout(() => {
