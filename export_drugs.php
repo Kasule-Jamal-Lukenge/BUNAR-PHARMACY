@@ -11,36 +11,29 @@
     use PhpOffice\PhpSpreadsheet\Spreadsheet;
     use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
-    $host = "localhost";
-    $user = "root";
-    $pass = "";
-    $db = "bunar_pharmacy";
-    $conn = new mysqli($host, $user, $pass, $db);
-
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+    // Establishing the database connection
+    require_once('conn.php');
 
     try {
-        // Fetch all drugs
+        // Fetching all drugs
         $result = $conn->query("SELECT id, drug_name, created_at FROM drugs ORDER BY drug_name ASC");
         
-        // Create new Spreadsheet
+        // Creating new Spreadsheet
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
         
-        // Set headers
+        // Setting headers
         $sheet->setCellValue('A1', 'ID');
         $sheet->setCellValue('B1', 'Drug Name');
         $sheet->setCellValue('C1', 'Date Added');
         
-        // Style header row
+        // Styling header row
         $sheet->getStyle('A1:C1')->getFont()->setBold(true);
         $sheet->getStyle('A1:C1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID);
         $sheet->getStyle('A1:C1')->getFill()->getStartColor()->setRGB('94061b');
         $sheet->getStyle('A1:C1')->getFont()->getColor()->setRGB('FFFFFF');
         
-        // Add data
+        // Adding data
         $row = 2;
         if ($result && $result->num_rows > 0) {
             while ($drug = $result->fetch_assoc()) {
@@ -51,19 +44,19 @@
             }
         }
         
-        // Auto-size columns
+        // Auto-sizing columns
         foreach (range('A', 'C') as $column) {
             $sheet->getColumnDimension($column)->setAutoSize(true);
         }
         
-        // Set filename and headers for download
+        // Setting filename and headers for download
         $filename = 'bumar_pharmacy_drugs_' . date('Y-m-d_H-i-s') . '.xlsx';
         
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
         header('Content-Disposition: attachment;filename="' . $filename . '"');
         header('Cache-Control: max-age=0');
         
-        // Create writer and output file
+        // Creating writer and output file
         $writer = new Xlsx($spreadsheet);
         $writer->save('php://output');
         

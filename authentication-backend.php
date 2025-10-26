@@ -3,15 +3,7 @@
     session_start();
 
     // Database connection
-    $host = "localhost";
-    $user = "root";
-    $pass = "";
-    $db = "bunar_pharmacy";
-    $conn = new mysqli($host, $user, $pass, $db);
-
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+    require_once('conn.php');
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $username = trim($_POST['username']);
@@ -92,11 +84,7 @@
     session_start();
 
     // Database connection for token cleanup
-    $host = "localhost";
-    $user = "root";
-    $pass = "";
-    $db = "bunar_pharmacy";
-    $conn = new mysqli($host, $user, $pass, $db);
+    require_once('conn.php');
 
     // Clear remember me token if exists
     if (isset($_COOKIE['remember_token'])) {
@@ -140,11 +128,7 @@
         
         // Check remember me token
         if (isset($_COOKIE['remember_token'])) {
-            $host = "localhost";
-            $user = "root";
-            $pass = "";
-            $db = "bunar_pharmacy";
-            $conn = new mysqli($host, $user, $pass, $db);
+            require_once('conn.php');
             
             if (!$conn->connect_error) {
                 $token = $_COOKIE['remember_token'];

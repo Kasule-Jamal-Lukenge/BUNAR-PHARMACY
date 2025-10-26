@@ -59,7 +59,7 @@
                 }
                 
                 // Redirect to dashboard
-                header("Location: data-management.php?success=" . urlencode("Login successful! Welcome back, " . $user['username']));
+                header("Location: data-management2.php?success=" . urlencode("Login successful! Welcome back, " . $user['username']));
                 exit;
                 
             } else {

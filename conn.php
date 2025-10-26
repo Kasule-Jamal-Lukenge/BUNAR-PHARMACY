@@ -4,6 +4,7 @@
     $user = "root";
     $pass = "";
     $db = "bunar_pharmacy";
+    
     $conn = new mysqli($host, $user, $pass, $db);
 
     if ($conn->connect_error) {
