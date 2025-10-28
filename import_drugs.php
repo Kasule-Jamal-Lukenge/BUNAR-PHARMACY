@@ -22,14 +22,14 @@
         $file_tmp = $_FILES['excel_file']['tmp_name'];
         $file_ext = strtolower(pathinfo($_FILES['excel_file']['name'], PATHINFO_EXTENSION));
         
-        // Validate file
+        // Validating file
         if (!in_array($file_ext, ['xls', 'xlsx'])) {
-            header("Location: data-management.php?status=danger&message=" . urlencode("Invalid file format. Please upload .xls or .xlsx files only."));
+            header("Location: data-management2.php?status=danger&message=" . urlencode("Invalid file format. Please upload .xls or .xlsx files only."));
             exit;
         }
         
         if ($_FILES['excel_file']['size'] > 5242880) {
-            header("Location: data-management.php?status=danger&message=" . urlencode("File size too large. Maximum size is 5MB."));
+            header("Location: data-management2.php?status=danger&message=" . urlencode("File size too large. Maximum size is 5MB."));
             exit;
         }
         
@@ -43,7 +43,7 @@
             $errors = 0;
             $user_id = $_SESSION['user_id'];
             
-            // Skip header row and process data
+            // Skipping header row and process data
             for ($i = 1; $i < count($rows); $i++) {
                 $drug_name = trim($rows[$i][0] ?? '');
                 
@@ -52,7 +52,7 @@
                     continue;
                 }
                 
-                // Check if drug already exists
+                // Checking if drug already exists
                 $check_stmt = $conn->prepare("SELECT id FROM drugs WHERE drug_name = ?");
                 $check_stmt->bind_param("s", $drug_name);
                 $check_stmt->execute();
@@ -65,7 +65,7 @@
                 }
                 $check_stmt->close();
                 
-                // Insert new drug
+                // Inserting new drug
                 $insert_stmt = $conn->prepare("INSERT INTO drugs (drug_name, added_by) VALUES (?, ?)");
                 $insert_stmt->bind_param("si", $drug_name, $user_id);
                 
@@ -85,13 +85,13 @@
                 $message .= " $errors drugs had errors.";
             }
             
-            header("Location: data-management.php?status=success&message=" . urlencode($message));
+            header("Location: data-management2.php?status=success&message=" . urlencode($message));
             
         } catch (Exception $e) {
-            header("Location: data-management.php?status=danger&message=" . urlencode("Error processing file: " . $e->getMessage()));
+            header("Location: data-management2.php?status=danger&message=" . urlencode("Error processing file: " . $e->getMessage()));
         }
     } else {
-        header("Location: data-management.php?status=danger&message=" . urlencode("No file uploaded."));
+        header("Location: data-management2.php?status=danger&message=" . urlencode("No file uploaded."));
     }
 
     $conn->close();

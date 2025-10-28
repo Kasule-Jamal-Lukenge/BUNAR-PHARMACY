@@ -25,7 +25,7 @@
             exit;
         }
         
-        // Check if drug already exists
+        // Checking if drug already exists
         $check_stmt = $conn->prepare("SELECT id FROM drugs WHERE drug_name = ?");
         $check_stmt->bind_param("s", $drug_name);
         $check_stmt->execute();
@@ -39,21 +39,22 @@
         }
         $check_stmt->close();
         
-        // Insert new drug
+        // Inserting new drug
         $insert_stmt = $conn->prepare("INSERT INTO drugs (drug_name, added_by) VALUES (?, ?)");
         $insert_stmt->bind_param("si", $drug_name, $user_id);
         
         if ($insert_stmt->execute()) {
-            // Log audit trail
+            // Logging audit trail
             $drug_id = $insert_stmt->insert_id;
             $audit_stmt = $conn->prepare("INSERT INTO drugs_audit (drug_id, action, new_value, changed_by) VALUES (?, 'INSERT', ?, ?)");
             $audit_stmt->bind_param("isi", $drug_id, $drug_name, $user_id);
             $audit_stmt->execute();
             $audit_stmt->close();
-            
+            var_dump($drug_name);
+            return;
             echo json_encode(['success' => true, 'message' => "Drug '$drug_name' added successfully!"]);
         } else {
-            echo json_encode(['success' => false, 'message' => 'Error adding drug: ' . $conn->error]);
+            echo json_encode(['success' => false, 'message' => "Error adding drug: '.$drug_name.'"  . $conn->error]);
         }
         
         $insert_stmt->close();

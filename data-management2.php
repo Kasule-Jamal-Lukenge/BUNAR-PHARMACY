@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    // Check if user is logged in
+    // Checking if user is logged in
     if (!isset($_SESSION['user_id'])) {
         header("Location: login.php?error=" . urlencode("Please log in to access this page"));
         exit;
@@ -10,7 +10,7 @@
     // Database connection
     require_once('conn.php');
 
-    // Get statistics
+    // Getting statistics
     $total_drugs_query = "SELECT COUNT(*) as total FROM drugs";
     $total_result = $conn->query($total_drugs_query);
     $total_drugs = $total_result->fetch_assoc()['total'];
@@ -19,7 +19,7 @@
     $recent_result = $conn->query($recent_drugs_query);
     $recent_drugs = $recent_result->fetch_assoc()['recent'];
 
-    // Get user info
+    // Getting user info
     $username = $_SESSION['username'] ?? 'User';
     $role = $_SESSION['role'] ?? 'user';
 ?>
@@ -28,7 +28,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drug Inventory Management - Bumar Pharmacy</title>
+    <title>Drug Inventory Management - Bunar Pharmacy</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -353,7 +353,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand fw-bold" href="index.html"><i class="fas fa-pills me-2"></i>Bumar Pharmacy</a>
+            <a class="navbar-brand fw-bold" href="index.html"><i class="fas fa-pills me-2"></i>Bunar Pharmacy</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -597,7 +597,7 @@
             bulkUploadBtn.disabled = true;
         }
         
-        // Add drug form submission
+        // Adding drug form submission
         document.getElementById('addDrugForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const formData = new FormData(this);
@@ -621,7 +621,7 @@
             });
         });
         
-        // Search functionality
+        // Searching functionality
         document.getElementById('searchInput').addEventListener('keyup', function() {
             const searchTerm = this.value.toLowerCase();
             const rows = document.querySelectorAll('#drugsTable tbody tr');
