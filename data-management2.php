@@ -620,6 +620,45 @@
                 showAlert('Error adding drug', 'danger');
             });
         });
+
+        //add drug fix script
+        // Adding drug form submission
+        // document.getElementById('addDrugForm').addEventListener('submit', function(e) {
+        //     e.preventDefault();
+        //     const formData = new FormData(this);
+            
+        //     fetch('add_drug.php', {
+        //         method: 'POST',
+        //         body: formData
+        //     })
+        //     .then(response => {
+        //         // Log the raw response
+        //         console.log('Response status:', response.status);
+        //         console.log('Response ok:', response.ok);
+        //         return response.text(); // Get as text first to see what we're receiving
+        //     })
+        //     .then(text => {
+        //         console.log('Raw response:', text); // This will show us exactly what we're getting
+        //         try {
+        //             const data = JSON.parse(text);
+        //             if (data.success) {
+        //                 showAlert(data.message, 'success');
+        //                 document.getElementById('drugName').value = '';
+        //                 setTimeout(() => location.reload(), 1500);
+        //             } else {
+        //                 showAlert(data.message, 'danger');
+        //             }
+        //         } catch (error) {
+        //             console.error('JSON parse error:', error);
+        //             console.error('Response text:', text);
+        //             showAlert('Error: Invalid response from server', 'danger');
+        //         }
+        //     })
+        //     .catch(error => {
+        //         console.error('Fetch error:', error);
+        //         showAlert('Error adding drug', 'danger');
+        //     });
+        // });
         
         // Searching functionality
         document.getElementById('searchInput').addEventListener('keyup', function() {

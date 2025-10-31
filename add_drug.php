@@ -1,4 +1,3 @@
-// ========== add_drug.php ==========
 <?php
     session_start();
     header('Content-Type: application/json');
@@ -50,7 +49,7 @@
             $audit_stmt->bind_param("isi", $drug_id, $drug_name, $user_id);
             $audit_stmt->execute();
             $audit_stmt->close();
-            echo json_encode(['success' => true, 'message' => "Drug '$drug_name' added successfully!"]); 
+            echo json_encode(['success' => true, 'message' => "Drug '$drug_name' added successfully!"]);    
         } else {
             // echo json_encode(['success' => false, 'message' => "Error adding drug: '.$drug_name.'" . $conn->error]);
             echo json_encode(['success' => false, 'message' => "Error adding drug: " . $drug_name . " - " . $conn->error]);
