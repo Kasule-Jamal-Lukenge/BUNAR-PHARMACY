@@ -1,0 +1,10 @@
+/*
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /data-management.php
+Disallow: /login.php
+
+Sitemap: https://www.bumarpharmacy.com/sitemap.xml
+*/

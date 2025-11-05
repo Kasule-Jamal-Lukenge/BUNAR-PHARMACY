@@ -85,3 +85,42 @@ CREATE TABLE IF NOT EXISTS drugs_audit (
     FOREIGN KEY (changed_by) REFERENCES admin_users(id) ON DELETE SET NULL
 );
 
+*/
+
+// ========== 1. DATABASE SCHEMA UPDATE ==========
+-- Add SEO fields to drugs table
+
+ALTER TABLE drugs ADD COLUMN slug VARCHAR(255) UNIQUE AFTER drug_name;
+ALTER TABLE drugs ADD COLUMN meta_description TEXT AFTER slug;
+ALTER TABLE drugs ADD COLUMN meta_keywords TEXT AFTER meta_description;
+ALTER TABLE drugs ADD COLUMN page_views INT DEFAULT 0 AFTER meta_keywords;
+ALTER TABLE drugs ADD COLUMN last_viewed TIMESTAMP NULL AFTER page_views;
+ALTER TABLE drugs ADD COLUMN drug_description TEXT AFTER last_viewed;
+ALTER TABLE drugs ADD COLUMN usage_information TEXT AFTER drug_description;
+ALTER TABLE drugs ADD COLUMN side_effects TEXT AFTER usage_information;
+ALTER TABLE drugs ADD COLUMN price DECIMAL(10,2) AFTER side_effects;
+ALTER TABLE drugs ADD COLUMN in_stock BOOLEAN DEFAULT TRUE AFTER price;
+ALTER TABLE drugs ADD COLUMN manufacturer VARCHAR(255) AFTER in_stock;
+
+-- Create search log table for analytics
+CREATE TABLE IF NOT EXISTS search_logs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    search_term VARCHAR(255) NOT NULL,
+    ip_address VARCHAR(45),
+    user_agent TEXT,
+    results_count INT,
+    searched_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    INDEX idx_search_term (search_term),
+    INDEX idx_searched_at (searched_at)
+);
+
+-- Create popular searches view
+CREATE OR REPLACE VIEW popular_searches AS
+SELECT search_term, COUNT(*) as search_count
+FROM search_logs
+WHERE searched_at >= DATE_SUB(NOW(), INTERVAL 30 DAYS)
+GROUP BY search_term
+ORDER BY search_count DESC
+LIMIT 50;
+
+
