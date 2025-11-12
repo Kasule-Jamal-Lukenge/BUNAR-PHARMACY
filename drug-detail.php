@@ -1,11 +1,8 @@
 <?php
 session_start();
 
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db = "bunar_pharmacy";
-$conn = new mysqli($host, $user, $pass, $db);
+// Establishing the database connection
+require_once('conn.php');
 
 // Get drug by slug from URL
 $drug_slug = $_GET['drug'] ?? '';
@@ -28,24 +25,24 @@ if ($result->num_rows === 0) {
 
 $drug = $result->fetch_assoc();
 
-// Update page views
+// Updating page views
 $update_views = $conn->prepare("UPDATE drugs SET page_views = page_views + 1, last_viewed = NOW() WHERE id = ?");
 $update_views->bind_param("i", $drug['id']);
 $update_views->execute();
 
-// Get related drugs
+// Getting related drugs
 $related_query = "SELECT * FROM drugs WHERE id != ? AND in_stock = TRUE ORDER BY RAND() LIMIT 4";
 $related_stmt = $conn->prepare($related_query);
 $related_stmt->bind_param("i", $drug['id']);
 $related_stmt->execute();
 $related_drugs = $related_stmt->get_result();
 
-// Prepare meta information
-$page_title = htmlspecialchars($drug['drug_name']) . " - Buy Online at Bumar Pharmacy Uganda";
-$meta_description = $drug['meta_description'] ?: "Buy " . htmlspecialchars($drug['drug_name']) . " at Bumar Pharmacy. Fast delivery across Uganda. Licensed pharmacy with quality medications.";
-$meta_keywords = $drug['meta_keywords'] ?: htmlspecialchars($drug['drug_name']) . ", buy " . htmlspecialchars($drug['drug_name']) . " Uganda, " . htmlspecialchars($drug['drug_name']) . " pharmacy, Bumar Pharmacy";
-$canonical_url = "https://www.bumarpharmacy.com/drug/" . $drug_slug;
-$drug_image = "https://www.bumarpharmacy.com/images/drugs/" . $drug_slug . ".jpg";
+// Preparing meta information
+$page_title = htmlspecialchars($drug['drug_name']) . " - Buy Online at Bunar Pharmacy Uganda";
+$meta_description = $drug['meta_description'] ?: "Buy " . htmlspecialchars($drug['drug_name']) . " at Bunar Pharmacy. Fast delivery across Uganda. Licensed pharmacy with quality medications.";
+$meta_keywords = $drug['meta_keywords'] ?: htmlspecialchars($drug['drug_name']) . ", buy " . htmlspecialchars($drug['drug_name']) . " Uganda, " . htmlspecialchars($drug['drug_name']) . " pharmacy, Bunar Pharmacy";
+$canonical_url = "https://www.bunarpharmacy.com/drug/" . $drug_slug;
+$drug_image = "https://www.bunarpharmacy.com/images/drugs/" . $drug_slug . ".jpg";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -97,7 +94,7 @@ $drug_image = "https://www.bumarpharmacy.com/images/drugs/" . $drug_slug . ".jpg
             "availability": "<?php echo $drug['in_stock'] ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock'; ?>",
             "seller": {
                 "@type": "Organization",
-                "name": "Bumar Pharmacy",
+                "name": "Bunar Pharmacy",
                 "telephone": "+256749059309",
                 "address": {
                     "@type": "PostalAddress",
@@ -117,7 +114,7 @@ $drug_image = "https://www.bumarpharmacy.com/images/drugs/" . $drug_slug . ".jpg
         "@context": "https://schema.org",
         "@type": "Pharmacy",
         "name": "Bumar Pharmacy",
-        "image": "https://www.bumarpharmacy.com/images/logo.png",
+        "image": "https://www.bunarpharmacy.com/images/logo.png",
         "telephone": "+256749059309",
         "address": {
             "@type": "PostalAddress",
@@ -132,7 +129,7 @@ $drug_image = "https://www.bumarpharmacy.com/images/drugs/" . $drug_slug . ".jpg
             "latitude": 0.3485122,
             "longitude": 32.6467761
         },
-        "url": "https://www.bumarpharmacy.com",
+        "url": "https://www.bunarpharmacy.com",
         "openingHoursSpecification": [
             {
                 "@type": "OpeningHoursSpecification",

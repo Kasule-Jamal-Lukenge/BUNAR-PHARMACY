@@ -1,11 +1,8 @@
 <?php
 // Run this once to generate slugs and SEO data for existing drugs
 
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db = "bunar_pharmacy";
-$conn = new mysqli($host, $user, $pass, $db);
+// Establishing the database connection
+require_once('conn.php');
 
 function createSlug($text) {
     $text = strtolower($text);

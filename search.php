@@ -1,14 +1,11 @@
 <?php
 session_start();
 
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db = "bunar_pharmacy";
-$conn = new mysqli($host, $user, $pass, $db);
+// Establishing the database connection
+require_once('conn.php');
 
 $search_term = $_GET['q'] ?? '';
-$page_title = !empty($search_term) ? "Search Results for '" . htmlspecialchars($search_term) . "' - Bumar Pharmacy" : "Search Drugs - Bumar Pharmacy";
+$page_title = !empty($search_term) ? "Search Results for '" . htmlspecialchars($search_term) . "' - Bunar Pharmacy" : "Search Drugs - Bunar Pharmacy";
 
 // Log search
 if (!empty($search_term)) {

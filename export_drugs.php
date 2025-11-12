@@ -1,4 +1,3 @@
-// ========== export_drugs.php ==========
 <?php
     session_start();
 
